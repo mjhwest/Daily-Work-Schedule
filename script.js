@@ -41,14 +41,20 @@ function hourColor() {
 };
 
 //create variable for save button ;
-
 var saveButton = $('.saveBtn');
 
 //create function so when saveBtn is clicked on its saved to local Storage (use, setItem). 
-
+//saveButton is the variable, use '.on' in jquery instead of addEventListner. 
+//when the savebutton is clicked on the function enables. 
 saveButton.on('click', function() {
 
+    //.parent  method is used as it selects one element and .attr('id') so it specifically selects the id attribute 
+    var timeSlot = $(this).parent().attr("id");
+    //.siblings() method searches through element to find '.hourTask' and .val method is used to retrieve value from textarea i.e. letters
+    var text = $(this).siblings(".hourTask").val();
 
+    //then setItem timeSlot and text into local storage. 
+    localStorage.setItem(timeSlot, text)
 })
 
 
