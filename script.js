@@ -4,20 +4,32 @@
 var currentDate = moment().format('dddd  MMMM Do, YYYY');
 $("#currentDay").html(currentDate);
 
-// var CurrentDate = moment().time(); //dosent work look at moment website and find how to display hour
-// console.log(currentDate)
 
-// var timeNow = moment().hours();
-// console.log(timeNow)
 
-var timeNow = moment().hour(Number);
-console.log(timeNow)
+//variable to determine the time now. Note; it registers in 24 hour time. 
+var presentTime = moment().hour(); // Number
+console.log(presentTime)
 
-var timeNow = moment().hour(); // Number
-console.log(timeNow)
 
-var timeNow = moment().hours(Number);
-console.log(timeNow)
+//Create function for timeslots to be colored based on '.past / .present / .future. 
 
-var timeNow = moment().hours(); // Number
-console.log(timeNow)
+function hourColor() {
+    var timeDay = moment().hour();
+    console.log(timeDay )
+
+    $(".time-block").each(function(){
+        var hourNow = parseInt($(this).attr("id"));{
+        if (timeDay.isBefore.hourNow) {
+            addClass(".past");
+        } else (timeDay.isSame.hourNow) 
+            addClass(".prsent");
+        } if (timeDay.isAfter.hourNow) {
+             addClass(".future");
+        }
+    });
+};
+
+
+//CALL THE FUNCTION
+
+hourColor();
