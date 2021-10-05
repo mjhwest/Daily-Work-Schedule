@@ -1,14 +1,6 @@
-//task 1/ add display for the day of the week and the date. 
-
 //setting the variable currentDate, 
 var currentDate = moment().format('dddd  MMMM Do, YYYY');
 $("#currentDay").html(currentDate);
-
-
-//task 2 
-//variable to determine the time now. Note; it registers in 24 hour time. 
-var presentTime = moment().hour(); // Number
-console.log(presentTime)
 
 
 //Create function for timeslots to be colored based on '.past / .present / .future. '
@@ -21,42 +13,47 @@ function hourColor() {
     //Use $('.time-block').each(function()  as shorthand to refer to each timeblock  in HTMl
     $('.time-block').each(function() {
 
-        //create varaible to identify which time block is allocated which color, we use parseInt as it return a number value
+        // $(this) enables the use of jquery methods. 
+        //create varaible to identify which time block is allocated to which color. parseInt returns number value, attr returns value of 'id'.
         let hourNow = parseInt($(this).attr('id'));
-
-        //create if statement to identify color code 
-        // Using moment method with isBefore, can check that timeDay is BEFORE hourNow
+        //create if statement to identify color code // Using moment method with isBefore method, can check that timeDay is BEFORE hourNow
         if (moment(timeDay).isBefore(hourNow)) {
-            //if it is before, use .find to search HTML for textarea and add class future to it.
+            // .find method returns all 'textarea' elements,  addClass method adds one or more class to selected element. 'future' turns green
             $(this).find('textarea').addClass('future');
-            //same principle as above, but this time if timeDay is AFTER hourNow, we search for textarea and add class past
         } else if (moment(timeDay).isAfter(hourNow)) {
             $(this).find('textarea').addClass('past');
-            //same principles as above, but if its the previous twom then its this. Search for textarea and add class present. 
         } else {
             $(this).find('textarea').addClass('present');
         }
-
     });
 };
 
-//create variable for save button ;
+//create variable for saveButton
 var saveButton = $('.saveBtn');
-
-//create function so when saveBtn is clicked on its saved to local Storage (use, setItem). 
-//saveButton is the variable, use '.on' in jquery instead of addEventListner. 
-//when the savebutton is clicked on the function enables. 
+//create a function to save user input in allocated time slot. //  '.on' in jquery instead of addEventListner. 
 saveButton.on('click', function() {
+    //siblings searches (hourBock, hourTask and saveBtn) and returns .hourBlock  //.text method sets or returns the text content of selected element; eg 10am
+    var timeSlot = $(this).siblings(".hourBlock").text();
+    // .val method (normally used with input, select or textarea) returns or sets the value attributre of selected elements. //In this instance it is SETTING, i.e what the userinputs into textarea class. 
+    var textAct = $(this).siblings(".hourTask").val();
+    //set items in localStorage
+    localStorage.setItem(timeSlot, textAct)
+});
 
-    //.parent  method is used as it selects one element and .attr('id') so it specifically selects the id attribute 
-    var timeSlot = $(this).parent().attr("id");
-    //.siblings() method searches through element to find '.hourTask' and .val method is used to retrieve value from textarea i.e. letters
-    var text = $(this).siblings(".hourTask").val();
+//create function to retrieve from local storage. 
+function dailyPlanner() {
+    //for each hourBlock, the function will apply 
+    $('.hourBlock').each(function() {
+        //hourNow uses text method to return all content for each hourBlock element that has had saveButton function enabled.
+        var hourNow = $(this).text();
+        // planHour gets hourNow id from timeBlock function 
+        var planHour = localStorage.getItem(hourNow);
+        if (hourNow !== null) {
+            $(this).siblings(".hourTask").val(planHour);
+        }
+    })
+}
 
-    //then setItem timeSlot and text into local storage. 
-    localStorage.setItem(timeSlot, text)
-})
-
-
-//Call the hourColor function to enable color coding. 
+// //Call the functions.
 hourColor();
+dailyPlanner();
