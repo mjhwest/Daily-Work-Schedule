@@ -19,6 +19,33 @@ ADD LINK HERE
 
 
 ## Usage
+
+The usage of this application is relatively straight forward. 
+
+The user is presented with timeslots for a 9-5 working day. 
+
+![day](assets/screenshots/day.png)
+
+Each time block was created in html using the principle 
+Container, Row, Element. 
+
+![CTE](assets/screenshots/CTE.png)
+
+The user is then able to type text into the desired time slot. If a time slot is grey it is past, if it is red it is current, and if green it is in the futre. 
+
+![timeslots](assets/screenshots/timeslots.png)
+
+The time slots were created using isBefore method from moment.js 
+It allowed for time slots to compare if they are before or after the current time of the day. 
+
+![moment](assets/screenshots/moment.png)
+
+The user can then click on the save button, which would store the text into local storage. This was done by creating a save button function which would set elements into local storage. If the user then refreshed the page the same activity would still be there, this was done using a similar function but this time focused on getting the information out of local storage. 
+
+The last step was to call the functions so they would enable. 
+
+![local](assets/screenshots/local.png)
+
 Provide instructions and examples for use. Include screenshots as needed.
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
     ```md
@@ -28,9 +55,13 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Features
 There are a number of features that were used to complete this project. 
--Bootstrap Layout
--Google Fonts 
--Font Awesome 
--Moment.js 
--JQuery 
+-Bootstrap Layout <br>
+<br>
+-Google Fonts <br>
+<br>
+-Font Awesome <br>
+<br>
+-Moment.js <br>
+<br>
+-JQuery <br>
 If your project has a lot of features, list them here.
