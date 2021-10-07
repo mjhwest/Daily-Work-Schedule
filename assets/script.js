@@ -5,7 +5,6 @@ $("#currentDay").html(currentDate);
 
 //Create function for timeslots to be colored based on '.past / .present / .future. '
 function hourColor() {
-
     //create a variable for the time of the day using moment.hours to give you current time. 
     //note; hours logs in 24 hour time so needed to adjust id's in html to represent 24hour time too. 
     let timeDay = moment().hours();
@@ -48,9 +47,11 @@ function dailyPlanner() {
         var hourNow = $(this).text();
         // planHour gets hourNow id from timeBlock function 
         var planHour = localStorage.getItem(hourNow);
+        console.log(hourNow) //
         if (hourNow !== null) {
             $(this).siblings(".hourTask").val(planHour);
         }
+        console.log(planHour)
     })
 }
 
