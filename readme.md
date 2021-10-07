@@ -45,13 +45,6 @@ The last step was to call the functions so they would enable.
 
 ![local](assets/screenshots/local.png)
 
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-
-
 ## Features
 There are a number of features that were used to complete this project. <br>
 <br>
@@ -64,4 +57,4 @@ There are a number of features that were used to complete this project. <br>
 -Moment.js <br>
 <br>
 -JQuery <br>
-If your project has a lot of features, list them here.
+
