@@ -14,8 +14,7 @@ While the task was difficult at times i did enjoy completing it. I learnt how to
 
 Here is a link to the deployed applicatoin: 
 
-ADD LINK HERE 
-
+https://mjhwest.github.io/Daily-Work-Schedule/
 
 
 ## Usage
@@ -54,7 +53,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 
 ## Features
-There are a number of features that were used to complete this project. 
+There are a number of features that were used to complete this project. <br>
+<br>
 -Bootstrap Layout <br>
 <br>
 -Google Fonts <br>
