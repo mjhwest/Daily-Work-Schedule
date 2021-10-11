@@ -1,9 +1,9 @@
-//setting the variable currentDate, 
+//setting the variable currentDate on planner. Changes every day. 
 var currentDate = moment().format('dddd  MMMM Do, YYYY');
 $("#currentDay").html(currentDate);
 
 
-//Create function for timeslots to be colored based on '.past / .present / .future. '
+//Create function for timeslots, colored based on '.past / .present / .future. '
 function hourColor() {
     //create a variable for the time of the day using moment.hours to give you current time. 
     //note; hours logs in 24 hour time so needed to adjust id's in html to represent 24hour time too. 
